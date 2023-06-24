@@ -1,4 +1,3 @@
-// In the book, the coding does not take care about concurreny problem! We need to use WaitGroup for fixing it.
 package main
 
 import (
@@ -16,7 +15,7 @@ func main() {
 	wg.Add(1024)
 	for i := 1; i <= 1024; i++ {
 		go func(j int) {
-			address := fmt.Sprintf("192.168.0.61:%d", j)
+			address := fmt.Sprintf("www.google.com:%d", j)
 			conn, err := net.Dial("tcp", address)
 			if err != nil {
 				wg.Done()
